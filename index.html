@@ -19,15 +19,73 @@
 
   <!-- Custom styles for this template -->
   <link href="css/business-casual.min.css" rel="stylesheet">
+<style type="text/css">
 
+
+  .ml5 {
+  position: relative;
+  font-weight: 300;
+  font-size: 3.5em;
+  color: #402d2d;
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
+.branco{color:white;}
+.z{font-size: 25px;}
+.w{font-size: 30px;}
+</style>
 </head>
 
 <body>
-
+<!--
   <h1 class="site-heading text-center text-white d-none d-lg-block">
+    
     <span class="site-heading-lower">Os mais belos cavalos do mundo</span>
-  </h1>
+  
 
+  </h1>
+-->
+<h5 class="ml5 text-center">
+  <span class="text-wrapper">
+    <span class="line line1 branco"></span>
+    <span class="letters letters-left branco">Os mais belos</span>
+    <span class="letters letters-right branco">cavalos do mundo</span>
+    <span class="line line2 branco"></span>
+  </span>
+</h5>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
@@ -62,8 +120,22 @@
         <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/intro.jpg" alt="">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Quem somos?</span>
-            <span class="section-heading-lower">O que apresentamos?</span>
+            <span class="section-heading-upper">
+<div class="ml5 text-center">
+
+    <span class="letters letters-left z">Quem</span>
+    <span class="letters letters-right z">somos?</span>
+
+</div>
+
+ </span>
+
+<div class="ml5 text-center">
+
+    <span class="letters letters-left w">O que</span>
+    <span class="letters letters-right w">apresentamos?</span>
+
+</div>
           </h2>
           <p class="mb-3">No presente site apresentamos as mais belas raças de cavalos, estando entre elas como seria de esperar o Puro Sangue Lusitano. O típico cavalo português que está considerado como o mais belo da Europa. É possível também entrar em contacto com vendedores e adquirir o seu cavalo!
           </p>
@@ -74,15 +146,36 @@
       </div>
     </div>
   </section>
-
+  <br><br>
+<br>
   <section class="page-section cta">
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
           <div class="cta-inner text-center rounded">
             <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Da nossa página</span>
-              <span class="section-heading-lower">Para si!</span>
+              <span class="section-heading-upper">
+<span class="ml5 text-center">
+
+    <span class="letters letters-left w">Da nossa</span>
+    <span class="letters letters-right w">página</span>
+
+</span>
+
+
+
+            </span>
+              <span class="section-heading-lower">
+<span class="ml5 text-center">
+
+    <span class="letters letters-left w">Para</span>
+    <span class="letters letters-right w">Si!</span>
+
+</span>
+
+
+
+            </span>
             </h2>
             <p class="mb-0">Quando navega na nossa página é-lhe possível descobrir várias raças das mais belas e na distância de um click entrar em contato connosco para adquirir um belissímo animal!</p>
           </div>
@@ -100,6 +193,47 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script type="text/javascript">anime.timeline({loop: true})
+  .add({
+    targets: '.ml5 .line',
+    opacity: [0.5,1],
+    scaleX: [0, 1],
+    easing: "easeInOutExpo",
+    duration: 700
+  }).add({
+    targets: '.ml5 .line',
+    duration: 600,
+    easing: "easeOutExpo",
+    translateY: (el, i) => (-0.625 + 0.625*2*i) + "em"
+  }).add({
+    targets: '.ml5 .ampersand',
+    opacity: [0,1],
+    scaleY: [0.5, 1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5 .letters-left',
+    opacity: [0,1],
+    translateX: ["0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=300'
+  }).add({
+    targets: '.ml5 .letters-right',
+    opacity: [0,1],
+    translateX: ["-0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });</script>
 
 </body>
 

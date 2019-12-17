@@ -19,14 +19,41 @@
 
   <!-- Custom styles for this template -->
   <link href="css/business-casual.min.css" rel="stylesheet">
+<style type="text/css">.ml10 {
+  position: relative;
+  font-weight: 900;
+  font-size: 1em;
+}
 
+.ml10 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}</style>
 </head>
 
 <body>
 
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">O típico cavalo português</span>
-    <span class="site-heading-lower">Puro Sangue Lusitano</span>
+    <span class="site-heading-lower">
+<h1 class="ml10">
+  <span class="text-wrapper">
+    <span class="letters">Puro Sangue Lusitano</span>
+  </span>
+</h1>
+
+
+    </span>
   </h1>
 
   <!-- Navigation -->
@@ -66,7 +93,14 @@
             <div class="bg-faded rounded p-5">
               <h2 class="section-heading mb-4">
                 <span class="section-heading-upper">PSL, o cavalo português</span>
-                <span class="section-heading-lower">Sobre o Puro Sangue Lusitano</span>
+                <span class="section-heading-lower">
+<h1 class="ml10">
+  <span class="text-wrapper">
+    <span class="letters">Sobre o Puro Sangue Lusitano</span>
+  </span>
+</h1>
+
+                </span>
               </h2>
               <p>O puro-sangue lusitano (PSL) é uma raça de cavalos com origem em Portugal. É o cavalo de sela mais antigo do Mundo, sendo montado aproximadamente há mais de cinco mil anos. Os seus ancestrais são comuns aos da raça Sorraia e Árabe. Essas duas raças formam os denominados cavalos ibéricos, que evoluíram a partir de cavalos primitivos existentes na Península Ibérica dos quais se supõe descenderem directamente o pequeno grupo da raça Sorraia ainda existente. Pensa-se que essa raça primitiva foi cruzada com cavalos "Bereber" oriundos do Norte de África e mais tarde tiveram também influência do árabe.</p>
               <p class="mb-0">O puro-sangue lusitano apresenta aptidão natural para alta escola (Haute École) e exercícios de ares altos, uma vez que põe os membros posteriores debaixo da massa com grande facilidade. Assim, o Lusitano revela-se não só no toureio e equitação clássica, mas também nas disciplinas equestres federadas como dressage, obstáculos, atrelagem e, em especial, equitação de trabalho, estando no mesmo patamar que os melhores especialistas da modalidade. Foram estes cavalos portugueses, os utilizados na produção do filme "O Senhor dos Anéis".</p>
@@ -86,7 +120,24 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script type="text/javascript">// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml10 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml10 .letter',
+    rotateY: [-90, 0],
+    duration: 1300,
+    delay: (el, i) => 45 * i
+  }).add({
+    targets: '.ml10',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });</script>
 </body>
 
 </html>
