@@ -20,13 +20,26 @@
     <!-- Custom styles for this template -->
     <link href="css/business-casual.min.css" rel="stylesheet">
 
+    <style type="text/css">.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+  font-size: 50px;
+}
+.preto{color:black;}
+.x{font-size: 30px;}
+</style>
   </head>
 
   <body>
 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Adquira já o seu cavalo</span>
-      <span class="site-heading-lower">Não perca as nossas oportunidades!</span>
+      <span class="ml2 text-center branco">Não perca as nossas oportunidades!</span>
     </h1>
 
     <!-- Navigation -->
@@ -129,7 +142,7 @@
               <div class="bg-faded rounded p-5">
                 <h2 class="section-heading mb-4">
                   <span class="section-heading-upper">PSL o cavalo de eleição</span>
-                  <span class="section-heading-lower">O mais vendido dos nossos cavalos</span>
+                  <span class="ml2 text-center x">O mais vendido dos nossos cavalos</span>
                   <span class="section-heading-upper">Valor superior a 10 000€</span>
                 </h2>
                 <p>Com a criação da nossa página em Setembro de 2019 o Cavalo Puro Sangue Lusitano tem sido o mais escolhido entre os compradores.</p>
@@ -152,7 +165,27 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script type="text/javascript">// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml2');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });</script>
   </body>
 
   <!-- Script to highlight the active date in the hours list -->
