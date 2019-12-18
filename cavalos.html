@@ -19,14 +19,27 @@
 
   <!-- Custom styles for this template -->
   <link href="css/business-casual.min.css" rel="stylesheet">
+<style type="text/css">.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
 
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+.branco{color:white;}
+.preto{color:black;}
+</style>
 </head>
 
 <body>
 
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Algumas das Raças mais belas</span>
-    <span class="site-heading-lower">Alguns dos mais belos cavalos</span>
+    <h1 class="ml15 text-center"></h1>
+    <h1 class="ml2 branco">Alguns dos mais belos cavalos</h1>
+    
   </h1>
 
   <!-- Navigation -->
@@ -63,7 +76,7 @@
         <div class="product-item-title d-flex">
           <div class="bg-faded p-5 d-flex ml-auto rounded">
             <h2 class="section-heading mb-0">
-              <span class="section-heading-lower">Cavalo Akhal-Teke </span>
+              <span class="ml2 black">Cavalo Akhal-Teke </span>
               <span class="section-heading-upper">(valor superior a 1000€)</span>
             </h2>
           </div>
@@ -84,7 +97,7 @@
         <div class="product-item-title d-flex">
           <div class="bg-faded p-5 d-flex mr-auto rounded">
             <h2 class="section-heading mb-0">
-              <span class="section-heading-lower">Cavalo Knabstrupper </span>
+              <span class="ml2 black">Cavalo Knabstrupper </span>
               <span class="section-heading-upper">(valor superior a 2500€)</span>
             </h2>
           </div>
@@ -105,7 +118,7 @@
         <div class="product-item-title d-flex">
           <div class="bg-faded p-5 d-flex ml-auto rounded">
             <h2 class="section-heading mb-0">
-              <span class="section-heading-lower">Cavalo Friesian </span>
+              <span class="ml2 black">Cavalo Friesian </span>
               <span class="section-heading-upper">(valor superior a 5000€)</span>
             </h2>
           </div>
@@ -132,7 +145,7 @@
       </div>
     </div>
   </section>
-  
+
   <footer class="footer text-faded text-center py-5">
     <div class="container">
       <p class="m-0 small">Copyright &copy; Américo Assunção DM 2019</p>
@@ -142,6 +155,27 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script type="text/javascript">// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml2');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });</script>
 
 </body>
 
